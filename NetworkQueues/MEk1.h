@@ -1,18 +1,17 @@
-#ifndef MM1_H
-#define MM1_H
+#ifndef MEK1_H
+#define MEK1_H
 
 #include "Buffer.h"
 #include "Customer.h"
-#include "exp.h"
-#include "poisson.h"
 #include "erlang.h"
+#include "exp.h"
 #include <map>
 
 using namespace std;
 
-class MM1 {
+class MEk1 {
     public :
-        MM1(double lambda,double mu);
+        MEk1(double lambda,double mu, int k);
         Buffer buf_state();
         double expected_wait();
         map<int,double> customer_state;
@@ -21,7 +20,7 @@ class MM1 {
     private:
 
         Exp arrival_generator;
-        Exp service_generator;
+        Erlang service_generator;
         double time = 0;
         double step_time = 1;
         int num_customers = 0;

@@ -1,9 +1,8 @@
-#include "MM1.h"
+#include "MEk1.h"
 #include <iterator>
 #include <iostream>
 
-
-MM1::MM1(double lambda, double mu): arrival_generator(lambda,5), service_generator(mu,21) {
+MEk1::MEk1(double lambda, double mu, int k): arrival_generator(lambda,5), service_generator(mu,k,6) {
     this->arrival_rate = lambda;
     this->service_rate = mu;
     Customer c;
@@ -13,11 +12,11 @@ MM1::MM1(double lambda, double mu): arrival_generator(lambda,5), service_generat
     this->line.add(c);
 }
 
-double MM1::expected_wait() {
+double MEk1::expected_wait() {
     return this->total_wait / this->last_sid_served;
 }
 
-void MM1::tick() {
+void MEk1::tick() {
 
     double current_step = this->time;
     //cout << current_step << "\n";
@@ -30,7 +29,7 @@ void MM1::tick() {
 
         //calculate exponentially distributed  inter_arrival_time
         double arrival_time_delta = this->arrival_generator.generate();
-
+        //cout <<arrival_time_delta << " ";
         //update sequency_id and arrival time for next packet
         this->cur_sequence_id++;
         c.sequence_id = this->cur_sequence_id;
@@ -51,7 +50,7 @@ void MM1::tick() {
         if (!ptr->in_system) {
             this->next_arrival = ptr->arrival_time;                           //check arrival time of next packet
             double service_time_delta = this->service_generator.generate();   //generate exponeitally distributed serivec time
-
+            //cout << service_time_delta << " ";
             //check to see if a customer is in service
             if (this->next_service > 0) {
 

@@ -9,5 +9,9 @@ Exp::Exp(double lambda,int s): uniform_dist(s){
 
 double Exp::generate(){
     double temp = this->uniform_dist.generate();
+    while (temp == 0){
+        temp = this->uniform_dist.generate();
+    }
     this->n = (-1/this->lambda) * log(1-temp);
+    return this->n;
 }
