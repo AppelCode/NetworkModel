@@ -1,4 +1,4 @@
-PROG = test
+PROG = test.out
 CC = g++
 CPPFLAGS = -I./dists -I./NetworkQueues -I./NetworkQueues/Utilities -I./matplotlib-cpp/ -I/usr/include/python2.7 -lpython2.7
 OBJS = main.o ./dists/uniform.o ./dists/exp.o ./dists/erlang.o ./dists/poisson.o ./NetworkQueues/MM1.o ./NetworkQueues/MEk1.o ./NetworkQueues/Utilities/Buffer.o
