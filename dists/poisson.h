@@ -5,7 +5,7 @@
 
 class Poisson {
     public:
-        Poisson(double);
+        Poisson(double,int);
         double generate();
     private:
         Exp exp_dist;

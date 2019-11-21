@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-Exp::Exp(double lambda){
+Exp::Exp(double lambda,int s): uniform_dist(s){
     this->lambda = lambda;
 }
 

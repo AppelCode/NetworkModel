@@ -1,6 +1,6 @@
 #include "poisson.h"
 
-Poisson::Poisson(double lambda):exp_dist(lambda) {
+Poisson::Poisson(double lambda,int s):exp_dist(lambda,s) {
     //do nothing
 }
 
@@ -14,6 +14,7 @@ double Poisson::generate() {
             cur_delta_time += temp;
             temp = this->exp_dist.generate();
         }
+        return num_arrivals-1;
     }
     return num_arrivals;
 }

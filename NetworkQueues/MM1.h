@@ -16,20 +16,21 @@ class MM1 {
         MM1(double lambda,double mu, double step_time);
         MM1(double lambda,double mu, double step_time,int intial_customers);
         Buffer buf_state();
+        map<int,double> customer_state;
         void tick();
-    private:
         Buffer line;
+    private:
+        
         Exp arrival_generator;
         Exp service_generator;
         double time = 0;
         double step_time = 1;
         int num_customers = 0;
-        double service_rate = 1;
-        double arrival_rate = 0.5;
+        double service_rate = 6;
+        double arrival_rate = 5;
         double next_arrival = 0;
         double next_service = 0;
         int cur_sequence_id = 0;
-        map<int,double> customer_state;
 };
 
 #endif

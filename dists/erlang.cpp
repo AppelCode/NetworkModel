@@ -1,16 +1,17 @@
-#ifndef EXP_H
-#define EXP_H
+#ifndef ERLANG_H
+#define ERLANG_H
 
 #include "uniform.h"
 
-class Exp {
+class Erlang {
     public:
-        Exp(double,int);
+        Erlang(double,int,int);
         double generate();
     private:
         Uniform uniform_dist;
-        double n;
+        double num;
         double lambda;
+        int k;
 };
 
 #endif

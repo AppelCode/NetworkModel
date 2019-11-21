@@ -12,6 +12,8 @@ class Buffer {
         int add(Customer);
         int served();
         int num_waiting();
+        int schedule_service(int packet_id,double service_time);
+        Customer last_up();
         Customer next_up();
         deque<Customer> buf;
 };

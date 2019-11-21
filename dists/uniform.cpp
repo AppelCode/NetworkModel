@@ -1,7 +1,7 @@
 #include "uniform.h"
 
-Uniform::Uniform() {
-    this->seed = 5;
+Uniform::Uniform(int s) {
+    this->rn = s;
 }
 
 void Uniform::setSeed(int s){
