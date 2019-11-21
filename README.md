@@ -1,2 +1,2 @@
 # NetworkModel
-Model Different Netowrks
+Model Different Networks
